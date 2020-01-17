@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "139486819510",
+    "firebase_url": "https://mechanics-47c28.firebaseio.com",
+    "project_id": "mechanics-47c28",
+    "storage_bucket": "mechanics-47c28.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:139486819510:android:ab5f22d9d1a05d505ce217",
+        "android_client_info": {
+          "package_name": "com.example.mobilemechanics"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "139486819510-0b77k661aac76v4jrh0k7spgcgb4klct.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mobilemechanics",
+            "certificate_hash": "fe927ab01b976e1a5d6ea79e8f79a386c6f4402a"
+          }
+        },
+        {
+          "client_id": "139486819510-o3lr29uicmcmcd3gtt70ml499q2190ef.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAeuchAO4oznop9-MDIOKGQXEyVd0GFS7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "139486819510-o3lr29uicmcmcd3gtt70ml499q2190ef.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
