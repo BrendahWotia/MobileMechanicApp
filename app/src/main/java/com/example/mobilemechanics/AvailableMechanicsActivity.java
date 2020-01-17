@@ -32,43 +32,26 @@ public class AvailableMechanicsActivity extends AppCompatActivity {
     private ListView mListView;
     DatabaseReference databaseReference;
 
-    ArrayList<String> list = new ArrayList<>();
-    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_available_mechanics);
 
-        mCome =findViewById(R.id.come);
-        mListView= findViewById(R.id.listView);
 
+        final ArrayList<String> list = new ArrayList<>();
+        final ArrayAdapter adapter = new ArrayAdapter<String>(this,R.layout.model,list);
         mListView.setAdapter(adapter);
 
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
-
-        databaseReference = FirebaseDatabase.getInstance().getReference("CustomerRequests");
-        databaseReference.addChildEventListener(new ChildEventListener() {
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("CustomerRequests");
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                String value = dataSnapshot.getValue(String.class);
-                list.add(value);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                list.clear();
+                for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
+                    list.add(dataSnapshot1.getValue().toString());
+                }
                 adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                adapter.notifyDataSetChanged();
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
             }
 
@@ -77,6 +60,7 @@ public class AvailableMechanicsActivity extends AppCompatActivity {
 
             }
         });
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
